@@ -1,3 +1,5 @@
+using ExcelFlow.Core.Interfaces;
+using ExcelFlow.DataAccess.Repositories;
 using ExcelFlow.Services.Interfaces;
 using ExcelFlow.Services.Services;
 
@@ -8,6 +10,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();
 // Add services to the container.
 builder.Services.AddControllers();
+// Repository'yi DI konteynerine kaydet
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+
+// BaseService'i DI konteynerine kaydet
+builder.Services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
+
 builder.Services.AddScoped<IAuthService, AuthService>();
 var app = builder.Build();
 

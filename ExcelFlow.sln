@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelFlow.API", "ExcelFlow.API\ExcelFlow.API.csproj", "{F9972351-D814-4AAE-A81D-D80AE39C99C3}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelFlow.DataAccess", "ExcelFlow.DataAccess\ExcelFlow.DataAccess.csproj", "{7169EB6B-C24C-4C7A-9F44-28E7D5BF7F00}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelFlow.Services", "ExcelFlow.Services\ExcelFlow.Services.csproj", "{08DD64C9-AA54-4384-A1D4-5BCB816295B7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelFlow.Core", "ExcelFlow.Core\ExcelFlow.Core.csproj", "{2C416AC5-6FA0-4EAF-B876-85CBCAD8E012}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelFlow.Auth.API", "ExcelFlow.Auth.API\ExcelFlow.Auth.API.csproj", "{B97DC39B-4E4A-4E0A-B614-FFCB1368733B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F9972351-D814-4AAE-A81D-D80AE39C99C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F9972351-D814-4AAE-A81D-D80AE39C99C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F9972351-D814-4AAE-A81D-D80AE39C99C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F9972351-D814-4AAE-A81D-D80AE39C99C3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7169EB6B-C24C-4C7A-9F44-28E7D5BF7F00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7169EB6B-C24C-4C7A-9F44-28E7D5BF7F00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7169EB6B-C24C-4C7A-9F44-28E7D5BF7F00}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{2C416AC5-6FA0-4EAF-B876-85CBCAD8E012}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C416AC5-6FA0-4EAF-B876-85CBCAD8E012}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C416AC5-6FA0-4EAF-B876-85CBCAD8E012}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B97DC39B-4E4A-4E0A-B614-FFCB1368733B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B97DC39B-4E4A-4E0A-B614-FFCB1368733B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B97DC39B-4E4A-4E0A-B614-FFCB1368733B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B97DC39B-4E4A-4E0A-B614-FFCB1368733B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

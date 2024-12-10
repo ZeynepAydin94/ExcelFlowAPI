@@ -1,13 +1,14 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using ExcelFlow.Core.Entities;
 using ExcelFlow.Services.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
 namespace ExcelFlow.Services.Services;
 
-public class AuthService : IAuthService
+public class AuthService : BaseService<User>, IAuthService
 {
     private readonly IConfiguration _configuration;
 

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Rki2KSzylUo=",
+  "dgSpecHash": "9DqO8HdDKeM=",
   "success": true,
-  "projectFilePath": "/Users/zeynepaydin/ExcelFlow/ExcelFlow.API/ExcelFlow.API.csproj",
+  "projectFilePath": "/Users/zeynepaydin/ExcelFlow/ExcelFlow.API/ExcelFlow.Auth.API.csproj",
   "expectedPackageFiles": [
     "/Users/zeynepaydin/.nuget/packages/azure.core/1.38.0/azure.core.1.38.0.nupkg.sha512",
     "/Users/zeynepaydin/.nuget/packages/azure.identity/1.11.4/azure.identity.1.11.4.nupkg.sha512",
