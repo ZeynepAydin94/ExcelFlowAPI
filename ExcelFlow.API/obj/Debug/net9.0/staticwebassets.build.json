@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "Q6qPjyt+abY4Q7FQVajxItEpacmbrWWYZ+yuZFP3Tws=",
+  "Source": "ExcelFlow.API",
+  "BasePath": "_content/ExcelFlow.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
