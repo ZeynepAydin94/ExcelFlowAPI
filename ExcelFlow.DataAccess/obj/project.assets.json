@@ -988,6 +988,19 @@
             "rid": "win"
           }
         }
+      },
+      "ExcelFlow.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ExcelFlow.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ExcelFlow.Core.dll": {}
+        }
       }
     }
   },
@@ -2738,10 +2751,16 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "ExcelFlow.Core/1.0.0": {
+      "type": "project",
+      "path": "../ExcelFlow.Core/ExcelFlow.Core.csproj",
+      "msbuildProject": "../ExcelFlow.Core/ExcelFlow.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
+      "ExcelFlow.Core >= 1.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 9.0.0"
     ]
   },
@@ -2769,7 +2788,11 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/zeynepaydin/ExcelFlow/ExcelFlow.Core/ExcelFlow.Core.csproj": {
+              "projectPath": "/Users/zeynepaydin/ExcelFlow/ExcelFlow.Core/ExcelFlow.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

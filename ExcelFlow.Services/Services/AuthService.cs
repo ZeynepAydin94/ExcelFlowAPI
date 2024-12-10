@@ -22,9 +22,10 @@ public class AuthService : IAuthService
         var secretKey = _configuration["JwtSettings:SecretKey"];
         var issuer = _configuration["JwtSettings:Issuer"];
         var audience = _configuration["JwtSettings:Audience"];
-        var expirationMinutes = int.Parse(_configuration["JwtSettings:ExpirationMinutes"]);
 
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
+        var expirationMinutes = int.Parse(Encoding.UTF8.GetBytes(_configuration["JwtSettings:ExpirationMinutes"] ?? string.Empty));
+
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey ?? string.Empty));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
         var claims = new List<Claim>

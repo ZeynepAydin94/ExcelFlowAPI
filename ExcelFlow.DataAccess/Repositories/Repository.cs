@@ -2,7 +2,8 @@ using System;
 
 namespace ExcelFlow.DataAccess.Repositories;
 
-
+using ExcelFlow.Core.Interfaces;
+using ExcelFlow.DataAccess.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
@@ -24,9 +25,14 @@ public class Repository<T> : IRepository<T> where T : class
         return await _dbSet.ToListAsync();
     }
 
-    public async Task<T> GetByIdAsync(int id)
+    public async Task<T?> GetByIdAsync(int id)
     {
-        return await _dbSet.FindAsync(id);
+        var entity = await _dbSet.FindAsync(id);
+        if (entity == null)
+        {
+            throw new KeyNotFoundException($"Entity with id {id} not found.");
+        }
+        return entity;
     }
 
     public async Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate)
@@ -37,20 +43,18 @@ public class Repository<T> : IRepository<T> where T : class
     public async Task AddAsync(T entity)
     {
         await _dbSet.AddAsync(entity);
+        await _context.SaveChangesAsync();
     }
 
-    public void Update(T entity)
+    public async Task UpdateAsync(T entity)
     {
-        _dbSet.Update(entity);
+        _dbSet.Update(entity); // Entity'i günceller
+        await _context.SaveChangesAsync(); // Değişiklikleri kaydeder
     }
 
-    public void Delete(T entity)
+    public async Task DeleteAsync(T entity)
     {
         _dbSet.Remove(entity);
-    }
-
-    public async Task SaveChangesAsync()
-    {
         await _context.SaveChangesAsync();
     }
 }

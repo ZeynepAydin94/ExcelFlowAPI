@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ExcelFlow.DataAccess")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ff991a402c2e59097d308bb820ff36f88ce09c61")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4a82e52c6fee32abbd3bb84f3acc719d64aebcc8")]
 [assembly: System.Reflection.AssemblyProductAttribute("ExcelFlow.DataAccess")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ExcelFlow.DataAccess")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
