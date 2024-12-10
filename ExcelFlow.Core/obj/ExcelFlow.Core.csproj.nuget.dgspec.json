@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/zeynepaydin/ExcelFlow/ExcelFlow.Infrastructure/ExcelFlow.Core.csproj": {}
+    "/Users/zeynepaydin/ExcelFlow/ExcelFlow.Core/ExcelFlow.Core.csproj": {}
   },
   "projects": {
-    "/Users/zeynepaydin/ExcelFlow/ExcelFlow.Infrastructure/ExcelFlow.Core.csproj": {
+    "/Users/zeynepaydin/ExcelFlow/ExcelFlow.Core/ExcelFlow.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/zeynepaydin/ExcelFlow/ExcelFlow.Infrastructure/ExcelFlow.Core.csproj",
+        "projectUniqueName": "/Users/zeynepaydin/ExcelFlow/ExcelFlow.Core/ExcelFlow.Core.csproj",
         "projectName": "ExcelFlow.Core",
-        "projectPath": "/Users/zeynepaydin/ExcelFlow/ExcelFlow.Infrastructure/ExcelFlow.Core.csproj",
+        "projectPath": "/Users/zeynepaydin/ExcelFlow/ExcelFlow.Core/ExcelFlow.Core.csproj",
         "packagesPath": "/Users/zeynepaydin/.nuget/packages/",
-        "outputPath": "/Users/zeynepaydin/ExcelFlow/ExcelFlow.Infrastructure/obj/",
+        "outputPath": "/Users/zeynepaydin/ExcelFlow/ExcelFlow.Core/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/zeynepaydin/.nuget/NuGet/NuGet.Config"
@@ -43,6 +43,12 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

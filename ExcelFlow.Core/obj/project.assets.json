@@ -2751,11 +2751,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/zeynepaydin/ExcelFlow/ExcelFlow.DataAccess/ExcelFlow.DataAccess.csproj",
-      "projectName": "ExcelFlow.DataAccess",
-      "projectPath": "/Users/zeynepaydin/ExcelFlow/ExcelFlow.DataAccess/ExcelFlow.DataAccess.csproj",
+      "projectUniqueName": "/Users/zeynepaydin/ExcelFlow/ExcelFlow.Core/ExcelFlow.Core.csproj",
+      "projectName": "ExcelFlow.Core",
+      "projectPath": "/Users/zeynepaydin/ExcelFlow/ExcelFlow.Core/ExcelFlow.Core.csproj",
       "packagesPath": "/Users/zeynepaydin/.nuget/packages/",
-      "outputPath": "/Users/zeynepaydin/ExcelFlow/ExcelFlow.DataAccess/obj/",
+      "outputPath": "/Users/zeynepaydin/ExcelFlow/ExcelFlow.Core/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/zeynepaydin/.nuget/NuGet/NuGet.Config"

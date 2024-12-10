@@ -300,16 +300,6 @@
           }
         }
       },
-      "ExcelFlow.Core/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v9.0",
-        "compile": {
-          "bin/placeholder/ExcelFlow.Core.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/ExcelFlow.Core.dll": {}
-        }
-      },
       "ExcelFlow.Services/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
@@ -777,11 +767,6 @@
         "system.identitymodel.tokens.jwt.nuspec"
       ]
     },
-    "ExcelFlow.Core/1.0.0": {
-      "type": "project",
-      "path": "../ExcelFlow.Infrastructure/ExcelFlow.Core.csproj",
-      "msbuildProject": "../ExcelFlow.Infrastructure/ExcelFlow.Core.csproj"
-    },
     "ExcelFlow.Services/1.0.0": {
       "type": "project",
       "path": "../ExcelFlow.Services/ExcelFlow.Services.csproj",
@@ -790,7 +775,6 @@
   },
   "projectFileDependencyGroups": {
     "net9.0": [
-      "ExcelFlow.Core >= 1.0.0",
       "ExcelFlow.Services >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 9.0.0"
     ]
@@ -820,9 +804,6 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "/Users/zeynepaydin/ExcelFlow/ExcelFlow.Infrastructure/ExcelFlow.Core.csproj": {
-              "projectPath": "/Users/zeynepaydin/ExcelFlow/ExcelFlow.Infrastructure/ExcelFlow.Core.csproj"
-            },
             "/Users/zeynepaydin/ExcelFlow/ExcelFlow.Services/ExcelFlow.Services.csproj": {
               "projectPath": "/Users/zeynepaydin/ExcelFlow/ExcelFlow.Services/ExcelFlow.Services.csproj"
             }
