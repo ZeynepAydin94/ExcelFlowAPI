@@ -6,14 +6,14 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v9.0": {
-      "ExcelFlow.API/1.0.0": {
+      "ExcelFlow.Auth.API/1.0.0": {
         "dependencies": {
           "ExcelFlow.Core": "1.0.0",
           "ExcelFlow.Services": "1.0.0",
           "Microsoft.AspNetCore.OpenApi": "9.0.0"
         },
         "runtime": {
-          "ExcelFlow.API.dll": {}
+          "ExcelFlow.Auth.API.dll": {}
         }
       },
       "BCrypt.Net-Next/4.0.3": {
@@ -169,7 +169,7 @@
     }
   },
   "libraries": {
-    "ExcelFlow.API/1.0.0": {
+    "ExcelFlow.Auth.API/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

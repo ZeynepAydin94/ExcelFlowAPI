@@ -3,7 +3,7 @@ using ExcelFlow.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ExcelFlow.API.Controllers
+namespace ExcelFlow.Auth.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
