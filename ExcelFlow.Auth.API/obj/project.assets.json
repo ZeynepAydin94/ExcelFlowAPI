@@ -2948,6 +2948,7 @@
   },
   "projectFileDependencyGroups": {
     "net9.0": [
+      "ExcelFlow.Core >= 1.0.0",
       "ExcelFlow.DataAccess >= 1.0.0",
       "ExcelFlow.Services >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 9.0.0"
@@ -2978,6 +2979,9 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
+            "/Users/zeynepaydin/ExcelFlow/ExcelFlow.Core/ExcelFlow.Core.csproj": {
+              "projectPath": "/Users/zeynepaydin/ExcelFlow/ExcelFlow.Core/ExcelFlow.Core.csproj"
+            },
             "/Users/zeynepaydin/ExcelFlow/ExcelFlow.DataAccess/ExcelFlow.DataAccess.csproj": {
               "projectPath": "/Users/zeynepaydin/ExcelFlow/ExcelFlow.DataAccess/ExcelFlow.DataAccess.csproj"
             },

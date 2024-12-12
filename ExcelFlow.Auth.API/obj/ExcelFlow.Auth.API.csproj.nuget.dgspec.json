@@ -26,6 +26,9 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
+              "/Users/zeynepaydin/ExcelFlow/ExcelFlow.Core/ExcelFlow.Core.csproj": {
+                "projectPath": "/Users/zeynepaydin/ExcelFlow/ExcelFlow.Core/ExcelFlow.Core.csproj"
+              },
               "/Users/zeynepaydin/ExcelFlow/ExcelFlow.DataAccess/ExcelFlow.DataAccess.csproj": {
                 "projectPath": "/Users/zeynepaydin/ExcelFlow/ExcelFlow.DataAccess/ExcelFlow.DataAccess.csproj"
               },

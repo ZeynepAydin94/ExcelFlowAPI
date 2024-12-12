@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="../ExcelFlow.Core/ExcelFlow.Core.csproj" />
     <ProjectReference Include="../ExcelFlow.DataAccess/ExcelFlow.DataAccess.csproj" />
     <ProjectReference Include="../ExcelFlow.Infrastructure/ExcelFlow.Core.csproj" />
     <ProjectReference Include="../ExcelFlow.Services/ExcelFlow.Services.csproj" />
