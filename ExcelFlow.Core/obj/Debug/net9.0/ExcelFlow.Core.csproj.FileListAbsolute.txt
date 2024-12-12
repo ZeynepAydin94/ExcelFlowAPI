@@ -10,16 +10,3 @@
 /Users/zeynepaydin/ExcelFlow/ExcelFlow.Infrastructure/obj/Debug/net9.0/refint/ExcelFlow.Core.dll
 /Users/zeynepaydin/ExcelFlow/ExcelFlow.Infrastructure/obj/Debug/net9.0/ExcelFlow.Core.pdb
 /Users/zeynepaydin/ExcelFlow/ExcelFlow.Infrastructure/obj/Debug/net9.0/ref/ExcelFlow.Core.dll
-/Users/zeynepaydin/ExcelFlow/ExcelFlow.Core/bin/Debug/net9.0/ExcelFlow.Core.deps.json
-/Users/zeynepaydin/ExcelFlow/ExcelFlow.Core/bin/Debug/net9.0/ExcelFlow.Core.dll
-/Users/zeynepaydin/ExcelFlow/ExcelFlow.Core/bin/Debug/net9.0/ExcelFlow.Core.pdb
-/Users/zeynepaydin/ExcelFlow/ExcelFlow.Core/obj/Debug/net9.0/ExcelFlow.Core.csproj.AssemblyReference.cache
-/Users/zeynepaydin/ExcelFlow/ExcelFlow.Core/obj/Debug/net9.0/ExcelFlow.Core.GeneratedMSBuildEditorConfig.editorconfig
-/Users/zeynepaydin/ExcelFlow/ExcelFlow.Core/obj/Debug/net9.0/ExcelFlow.Core.AssemblyInfoInputs.cache
-/Users/zeynepaydin/ExcelFlow/ExcelFlow.Core/obj/Debug/net9.0/ExcelFlow.Core.AssemblyInfo.cs
-/Users/zeynepaydin/ExcelFlow/ExcelFlow.Core/obj/Debug/net9.0/ExcelFlow.Core.csproj.CoreCompileInputs.cache
-/Users/zeynepaydin/ExcelFlow/ExcelFlow.Core/obj/Debug/net9.0/ExcelFlow.Core.sourcelink.json
-/Users/zeynepaydin/ExcelFlow/ExcelFlow.Core/obj/Debug/net9.0/ExcelFlow.Core.dll
-/Users/zeynepaydin/ExcelFlow/ExcelFlow.Core/obj/Debug/net9.0/refint/ExcelFlow.Core.dll
-/Users/zeynepaydin/ExcelFlow/ExcelFlow.Core/obj/Debug/net9.0/ExcelFlow.Core.pdb
-/Users/zeynepaydin/ExcelFlow/ExcelFlow.Core/obj/Debug/net9.0/ref/ExcelFlow.Core.dll
