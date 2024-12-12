@@ -1,3 +1,5 @@
+using System.Net;
+using System.Net.Security;
 using ExcelFlow.Core.Interfaces;
 using ExcelFlow.DataAccess.DbContexts;
 using ExcelFlow.DataAccess.Repositories;
@@ -25,6 +27,8 @@ builder.Services.AddScoped(typeof(IAuthRepository), typeof(AuthRepository));
 builder.Services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
 
 builder.Services.AddScoped<IAuthService, AuthService>();
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -42,4 +46,30 @@ app.UseRouting();
 app.MapControllers();
 
 app.Run();
+static void Main()
+{
+    // Sertifika doğrulama callback fonksiyonunu ayarla
+    ServicePointManager.ServerCertificateValidationCallback = new RemoteCertificateValidationCallback((sender, certificate, chain, sslPolicyErrors) =>
+    {
+        if (sslPolicyErrors == SslPolicyErrors.None)
+        {
+            return true; // Sertifika geçerli
+        }
 
+        // Hata durumunda detayları logla
+        Console.WriteLine($"Sertifika hatası: {sslPolicyErrors}");
+        return false; // Sertifika hatalı
+    });
+
+    // Burada SSL bağlantısı kurmaya çalışabilirsiniz, örneğin:
+    var request = System.Net.HttpWebRequest.Create("https://example.com");
+    try
+    {
+        var response = request.GetResponse();
+        Console.WriteLine("Bağlantı başarılı.");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Hata: {ex.Message}");
+    }
+}

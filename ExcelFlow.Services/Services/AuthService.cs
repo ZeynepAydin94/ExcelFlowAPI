@@ -24,6 +24,7 @@ public class AuthService : BaseService<User>, IAuthService
     public async Task<User?> AuthenticateAsync(string email, string password)
     {
         var user = await _authRepository.GetUserByUsernameAsync(email);
+        var hash = Hashassword(password);
         if (user == null || !ValidatePassword(password, user.PasswordHash))
         {
             return null; // Authentication failed
@@ -69,5 +70,9 @@ public class AuthService : BaseService<User>, IAuthService
     public bool ValidatePassword(string password, string hashedPassword)
     {
         return BCrypt.Net.BCrypt.Verify(password, hashedPassword);
+    }
+    public string Hashassword(string password)
+    {
+        return BCrypt.Net.BCrypt.HashPassword(password);
     }
 }

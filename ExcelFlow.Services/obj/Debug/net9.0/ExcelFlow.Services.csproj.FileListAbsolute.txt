@@ -1,0 +1,16 @@
+/Users/zeynepaydin/ExcelFlow/ExcelFlow.Services/bin/Debug/net9.0/ExcelFlow.Services.deps.json
+/Users/zeynepaydin/ExcelFlow/ExcelFlow.Services/bin/Debug/net9.0/ExcelFlow.Services.dll
+/Users/zeynepaydin/ExcelFlow/ExcelFlow.Services/bin/Debug/net9.0/ExcelFlow.Services.pdb
+/Users/zeynepaydin/ExcelFlow/ExcelFlow.Services/bin/Debug/net9.0/ExcelFlow.Core.dll
+/Users/zeynepaydin/ExcelFlow/ExcelFlow.Services/bin/Debug/net9.0/ExcelFlow.Core.pdb
+/Users/zeynepaydin/ExcelFlow/ExcelFlow.Services/obj/Debug/net9.0/ExcelFlow.Services.csproj.AssemblyReference.cache
+/Users/zeynepaydin/ExcelFlow/ExcelFlow.Services/obj/Debug/net9.0/ExcelFlow.Services.GeneratedMSBuildEditorConfig.editorconfig
+/Users/zeynepaydin/ExcelFlow/ExcelFlow.Services/obj/Debug/net9.0/ExcelFlow.Services.AssemblyInfoInputs.cache
+/Users/zeynepaydin/ExcelFlow/ExcelFlow.Services/obj/Debug/net9.0/ExcelFlow.Services.AssemblyInfo.cs
+/Users/zeynepaydin/ExcelFlow/ExcelFlow.Services/obj/Debug/net9.0/ExcelFlow.Services.csproj.CoreCompileInputs.cache
+/Users/zeynepaydin/ExcelFlow/ExcelFlow.Services/obj/Debug/net9.0/ExcelFlow.Services.sourcelink.json
+/Users/zeynepaydin/ExcelFlow/ExcelFlow.Services/obj/Debug/net9.0/ExcelFlo.E30ED3CB.Up2Date
+/Users/zeynepaydin/ExcelFlow/ExcelFlow.Services/obj/Debug/net9.0/ExcelFlow.Services.dll
+/Users/zeynepaydin/ExcelFlow/ExcelFlow.Services/obj/Debug/net9.0/refint/ExcelFlow.Services.dll
+/Users/zeynepaydin/ExcelFlow/ExcelFlow.Services/obj/Debug/net9.0/ExcelFlow.Services.pdb
+/Users/zeynepaydin/ExcelFlow/ExcelFlow.Services/obj/Debug/net9.0/ref/ExcelFlow.Services.dll
