@@ -5,9 +5,9 @@ using ExcelFlow.Core.Interfaces;
 namespace ExcelFlow.Services.Services;
 public class BaseService<TEntity> : IBaseService<TEntity> where TEntity : class
 {
-    private readonly IRepository<TEntity> _repository;
+    private readonly IBaseRepository<TEntity> _repository;
 
-    public BaseService(IRepository<TEntity> repository)
+    public BaseService(IBaseRepository<TEntity> repository)
     {
         _repository = repository;
     }

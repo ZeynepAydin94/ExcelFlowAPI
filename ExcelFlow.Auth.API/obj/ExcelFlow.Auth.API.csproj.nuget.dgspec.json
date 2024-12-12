@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/zeynepaydin/ExcelFlow/ExcelFlow.API/ExcelFlow.Auth.API.csproj": {}
+    "/Users/zeynepaydin/ExcelFlow/ExcelFlow.Auth.API/ExcelFlow.Auth.API.csproj": {}
   },
   "projects": {
-    "/Users/zeynepaydin/ExcelFlow/ExcelFlow.API/ExcelFlow.Auth.API.csproj": {
+    "/Users/zeynepaydin/ExcelFlow/ExcelFlow.Auth.API/ExcelFlow.Auth.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/zeynepaydin/ExcelFlow/ExcelFlow.API/ExcelFlow.Auth.API.csproj",
+        "projectUniqueName": "/Users/zeynepaydin/ExcelFlow/ExcelFlow.Auth.API/ExcelFlow.Auth.API.csproj",
         "projectName": "ExcelFlow.Auth.API",
-        "projectPath": "/Users/zeynepaydin/ExcelFlow/ExcelFlow.API/ExcelFlow.Auth.API.csproj",
+        "projectPath": "/Users/zeynepaydin/ExcelFlow/ExcelFlow.Auth.API/ExcelFlow.Auth.API.csproj",
         "packagesPath": "/Users/zeynepaydin/.nuget/packages/",
-        "outputPath": "/Users/zeynepaydin/ExcelFlow/ExcelFlow.API/obj/",
+        "outputPath": "/Users/zeynepaydin/ExcelFlow/ExcelFlow.Auth.API/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/zeynepaydin/.nuget/NuGet/NuGet.Config"

@@ -2,6 +2,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using ExcelFlow.Core.Entities;
+using ExcelFlow.Core.Interfaces;
 using ExcelFlow.Services.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -12,11 +13,23 @@ public class AuthService : BaseService<User>, IAuthService
 {
     private readonly IConfiguration _configuration;
 
-    public AuthService(IConfiguration configuration)
+    private readonly IAuthRepository _authRepository;
+
+    public AuthService(IConfiguration configuration, IAuthRepository authRepository) : base(authRepository)
     {
         _configuration = configuration;
-    }
+        _authRepository = authRepository;
 
+    }
+    public async Task<User?> AuthenticateAsync(string email, string password)
+    {
+        var user = await _authRepository.GetUserByUsernameAsync(email);
+        if (user == null || !ValidatePassword(password, user.PasswordHash))
+        {
+            return null; // Authentication failed
+        }
+        return user;
+    }
     // Token oluşturma metodu
     public string GenerateToken(string userId, string email, string[] roles)
     {

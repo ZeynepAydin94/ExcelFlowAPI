@@ -16,18 +16,30 @@ namespace ExcelFlow.API.Controllers
             _authService = authService;
         }
 
-        [HttpPost("login")]
-        public IActionResult Login([FromBody] LoginRequest request)
+        /// <summary>
+        /// Endpoint to authenticate a user and generate a JWT token.
+        /// </summary>
+        /// <param name="request">Login request containing username and password</param>
+        /// <returns>A JWT token if authentication is successful</returns>
+        [HttpPost("token")]
+        public async Task<IActionResult> GetToken([FromBody] LoginRequest request)
         {
-            // Kullanıcıyı doğrula (örneğin, veritabanından kontrol)
-            // Örnek olarak statik bir kullanıcı kontrolü
-            if (request.Email == "user@example.com" && request.Password == "password")
+            // Validate the request
+            if (string.IsNullOrWhiteSpace(request.Email) || string.IsNullOrWhiteSpace(request.Password))
             {
-                var token = _authService.GenerateToken("1", request.Email, new[] { "User" });
-                return Ok(new { Token = token });
+                return BadRequest("Username and password are required.");
             }
 
-            return Unauthorized("Invalid email or password");
+            // Authenticate the user (you need to implement this logic in AuthService)
+            var user = await _authService.AuthenticateAsync(request.Email, request.Password);
+            if (user == null)
+            {
+                return Unauthorized("Invalid username or password.");
+            }
+
+            // Generate token
+            var token = _authService.GenerateToken(user.RecordId.ToString(), user.Email, new string[0]);
+            return Ok(new { Token = token });
         }
         [HttpGet("hello")]
         public IActionResult SayHello()

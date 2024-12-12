@@ -3,7 +3,7 @@ using System.Linq.Expressions;
 
 namespace ExcelFlow.Core.Interfaces;
 
-public interface IRepository<TEntity> where TEntity : class
+public interface IBaseRepository<TEntity> where TEntity : class
 {
     Task<TEntity?> GetByIdAsync(int id);
     Task<IEnumerable<TEntity>> GetAllAsync();

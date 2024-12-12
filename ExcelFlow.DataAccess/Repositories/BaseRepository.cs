@@ -9,12 +9,12 @@ using System.Linq.Expressions;
 
 
 
-public class Repository<T> : IRepository<T> where T : class
+public class BaseRepository<T> : IBaseRepository<T> where T : class
 {
-    private readonly AppDbContext _context;
+    protected readonly AppDbContext _context;
     private readonly DbSet<T> _dbSet;
 
-    public Repository(AppDbContext context)
+    public BaseRepository(AppDbContext context)
     {
         _context = context;
         _dbSet = context.Set<T>();

@@ -11,7 +11,8 @@ builder.Services.AddOpenApi();
 // Add services to the container.
 builder.Services.AddControllers();
 // Repository'yi DI konteynerine kaydet
-builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+builder.Services.AddScoped(typeof(IAuthRepository), typeof(AuthRepository));
 
 // BaseService'i DI konteynerine kaydet
 builder.Services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
