@@ -11,3 +11,6 @@
 /Users/zeynepaydin/ExcelFlow/ExcelFlow.Services/obj/Debug/net9.0/refint/ExcelFlow.Services.dll
 /Users/zeynepaydin/ExcelFlow/ExcelFlow.Services/obj/Debug/net9.0/ExcelFlow.Services.pdb
 /Users/zeynepaydin/ExcelFlow/ExcelFlow.Services/obj/Debug/net9.0/ref/ExcelFlow.Services.dll
+/Users/zeynepaydin/ExcelFlow/ExcelFlow.Services/bin/Debug/net9.0/ExcelFlow.Core.dll
+/Users/zeynepaydin/ExcelFlow/ExcelFlow.Services/bin/Debug/net9.0/ExcelFlow.Core.pdb
+/Users/zeynepaydin/ExcelFlow/ExcelFlow.Services/obj/Debug/net9.0/ExcelFlo.E30ED3CB.Up2Date

@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../buildMultiTargeting/ExcelFlow.Auth.API.props" />
+</Project>

@@ -1,7 +1,9 @@
 using ExcelFlow.Core.Interfaces;
+using ExcelFlow.DataAccess.DbContexts;
 using ExcelFlow.DataAccess.Repositories;
 using ExcelFlow.Services.Interfaces;
 using ExcelFlow.Services.Services;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +13,11 @@ builder.Services.AddOpenApi();
 // Add services to the container.
 builder.Services.AddControllers();
 // Repository'yi DI konteynerine kaydet
+// Register DbContext with the DI container
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))); // Replace with your actual connection string
+
+
 builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
 builder.Services.AddScoped(typeof(IAuthRepository), typeof(AuthRepository));
 

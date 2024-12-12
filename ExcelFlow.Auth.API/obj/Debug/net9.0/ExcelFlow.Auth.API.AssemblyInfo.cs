@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ExcelFlow.Auth.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bedfacb8a24e908946361faca93e5bb72c81ccd9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f3fa70109ee89e6a32b392325a2712452e2af8ed")]
 [assembly: System.Reflection.AssemblyProductAttribute("ExcelFlow.Auth.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ExcelFlow.Auth.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

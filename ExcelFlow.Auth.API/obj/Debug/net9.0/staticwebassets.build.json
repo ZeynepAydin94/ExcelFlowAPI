@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "Q6qPjyt+abY4Q7FQVajxItEpacmbrWWYZ+yuZFP3Tws=",
-  "Source": "ExcelFlow.API",
-  "BasePath": "_content/ExcelFlow.API",
+  "Hash": "1x5MBd6sNRZRDBNS2zHogeAq7XXfk0aE2eZLmxvNupc=",
+  "Source": "ExcelFlow.Auth.API",
+  "BasePath": "_content/ExcelFlow.Auth.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
