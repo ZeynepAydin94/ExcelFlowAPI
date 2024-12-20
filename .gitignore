@@ -1,0 +1,17 @@
+# VS Code ayarları
+.vscode/
+
+# Debug klasörleri
+bin/
+obj/
+
+# Log dosyaları
+*.log
+
+# Geçici dosyalar
+*.tmp
+*.swp
+
+# Çalışma zamanı dosyaları
+node_modules/
+dist/
