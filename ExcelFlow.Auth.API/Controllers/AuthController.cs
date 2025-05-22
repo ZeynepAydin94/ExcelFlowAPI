@@ -1,5 +1,7 @@
+using System.Security.Claims;
 using ExcelFlow.Core.Dtos.Request;
 using ExcelFlow.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -40,6 +42,30 @@ namespace ExcelFlow.Auth.API.Controllers
             // Generate token
             var token = _authService.GenerateToken(user.RecordId.ToString(), user.Email, new string[0]);
             return Ok(new { Token = token });
+        }
+
+        [HttpGet("User")]
+        [Authorize] // Token doğrulaması yapılacak
+        public async Task<IActionResult> GetUserInfo()
+        {
+            // Kullanıcı bilgilerini almak için, JWT token'dan kullanıcı ID'sini alıyoruz
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (userId == null)
+            {
+                return Unauthorized("User not found");
+            }
+
+            // Kullanıcı bilgilerini alıyoruz
+            var user = await _authService.GetByIdAsync(int.Parse(userId));
+
+            if (user == null)
+            {
+                return NotFound("User not found");
+            }
+
+            // Kullanıcı bilgilerini döndürüyoruz
+            return Ok(user);
         }
         [HttpGet("hello")]
         public IActionResult SayHello()
