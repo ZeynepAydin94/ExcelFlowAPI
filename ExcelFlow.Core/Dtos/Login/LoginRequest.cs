@@ -1,6 +1,6 @@
 using System;
 
-namespace ExcelFlow.Core.Dtos.Request;
+namespace ExcelFlow.Core.Dtos.Login;
 
 public class LoginRequest
 {

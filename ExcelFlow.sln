@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelFlow.Core", "ExcelFlow
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelFlow.Auth.API", "ExcelFlow.Auth.API\ExcelFlow.Auth.API.csproj", "{B97DC39B-4E4A-4E0A-B614-FFCB1368733B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelFlow.Upload.API", "ExcelFlow.Upload.API\ExcelFlow.Upload.API.csproj", "{E2820C02-F92C-4F28-A075-155DD04B60B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelFlow.Web.Common", "ExcelFlow.Web.Common\ExcelFlow.Web.Common.csproj", "{95221F9E-41D5-416D-99F2-9D785ED7A18D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{B97DC39B-4E4A-4E0A-B614-FFCB1368733B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B97DC39B-4E4A-4E0A-B614-FFCB1368733B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B97DC39B-4E4A-4E0A-B614-FFCB1368733B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2820C02-F92C-4F28-A075-155DD04B60B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2820C02-F92C-4F28-A075-155DD04B60B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2820C02-F92C-4F28-A075-155DD04B60B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2820C02-F92C-4F28-A075-155DD04B60B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95221F9E-41D5-416D-99F2-9D785ED7A18D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95221F9E-41D5-416D-99F2-9D785ED7A18D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95221F9E-41D5-416D-99F2-9D785ED7A18D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95221F9E-41D5-416D-99F2-9D785ED7A18D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
