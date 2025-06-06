@@ -11,7 +11,7 @@ builder.Services.AddJwtAuthentication(builder.Configuration);
 builder.Services.AddSwaggerWithJwtSupport();
 builder.Services.AddAuthorization();
 builder.Services.AddEndpointsApiExplorer();
-
+builder.Services.AddAutoMapperMappings();
 // CORS
 builder.Services.AddCors();
 
