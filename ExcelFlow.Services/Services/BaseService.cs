@@ -1,44 +1,45 @@
 using System;
 using System.Linq.Expressions;
+using AutoMapper;
 using ExcelFlow.Core.Interfaces;
 
 namespace ExcelFlow.Services.Services;
-public class BaseService<TEntity> : IBaseService<TEntity> where TEntity : class
-{
-    private readonly IBaseRepository<TEntity> _repository;
 
-    public BaseService(IBaseRepository<TEntity> repository)
+
+public class BaseService<TEntity, TCreateDto> : IBaseService<TEntity, TCreateDto>
+    where TEntity : class, new()
+{
+    protected readonly IBaseRepository<TEntity> _repository;
+    protected readonly IMapper _mapper;
+
+    public BaseService(
+        IBaseRepository<TEntity> repository,
+        IMapper mapper)
     {
         _repository = repository;
+        _mapper = mapper;
     }
-
-    public async Task<TEntity?> GetByIdAsync(int id)
+    public virtual async Task<TEntity> GetByIdAsync(int id)
     {
-        return await _repository.GetByIdAsync(id);
+        var entity = await _repository.GetByIdAsync(id);
+        if (entity == null)
+            throw new KeyNotFoundException($"{id} not found");
+
+        return _mapper.Map<TEntity>(entity);
     }
-
-    public async Task<IEnumerable<TEntity>> GetAllAsync()
+    public virtual async Task<TCreateDto> CreateAsync(TCreateDto dto)
     {
-        return await _repository.GetAllAsync();
-    }
+        // await ValidateCreateAsync(dto);
 
-    public async Task<IEnumerable<TEntity>> FindAsync(Expression<Func<TEntity, bool>> predicate)
-    {
-        return await _repository.FindAsync(predicate);
-    }
+        var entity = _mapper.Map<TEntity>(dto);
 
-    public async Task AddAsync(TEntity entity)
-    {
+        await PreInsertAsync(entity);
         await _repository.AddAsync(entity);
+        await PostInsertAsync(entity);
+
+        return _mapper.Map<TCreateDto>(entity);
     }
 
-    public async Task UpdateAsync(TEntity entity)
-    {
-        await _repository.UpdateAsync(entity);
-    }
-
-    public async Task DeleteAsync(TEntity entity)
-    {
-        await _repository.DeleteAsync(entity);
-    }
+    public virtual Task PreInsertAsync(TEntity entity) => Task.CompletedTask;
+    public virtual Task PostInsertAsync(TEntity entity) => Task.CompletedTask;
 }

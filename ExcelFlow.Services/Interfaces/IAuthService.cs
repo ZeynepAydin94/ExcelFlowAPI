@@ -1,10 +1,11 @@
 using System;
+using ExcelFlow.Core.Dtos.Login;
 using ExcelFlow.Core.Entities;
 using ExcelFlow.Core.Interfaces;
 
 namespace ExcelFlow.Services.Interfaces;
 
-public interface IAuthService : IBaseService<User>
+public interface IAuthService : IBaseService<User, UserInsertDto>
 {
     string GenerateToken(string userId, string email, string[] roles);
     bool ValidatePassword(string password, string hashedPassword);

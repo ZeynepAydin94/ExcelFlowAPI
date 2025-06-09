@@ -3,14 +3,14 @@ using AutoMapper;
 using ExcelFlow.Core.Dtos.UploadJob;
 using ExcelFlow.Core.Entities;
 
-public class MappingProfile : Profile
+public class UploadJobProfile : Profile
 {
-    public MappingProfile()
+    public UploadJobProfile()
     {
         // DTO -> Entity
-        CreateMap<CreateUploadJobDto, UploadJob>();
+        CreateMap<UploadJobInsertDto, UploadJob>();
 
         // Entity -> DTO
-        CreateMap<UploadJob, CreateUploadJobDto>();
+        CreateMap<UploadJob, UploadJobInsertDto>();
     }
 }
