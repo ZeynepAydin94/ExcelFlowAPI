@@ -35,28 +35,28 @@ public class ExcelMessageConsumer : BackgroundService
                              autoDelete: false,
                              arguments: null);
 
-        var consumer = new EventingBasicConsumer(channel);
-        consumer.Received += async (model, ea) =>
-        {
-            var json = Encoding.UTF8.GetString(ea.Body.ToArray());
+        // var consumer = new EventingBasicConsumer(channel);
+        // consumer.Received += async (model, ea) =>
+        // {
+        //     var json = Encoding.UTF8.GetString(ea.Body.ToArray());
 
-            using var scope = _serviceProvider.CreateScope();
-            var processor = scope.ServiceProvider.GetRequiredService<IExcelProcessorService>();
+        //     using var scope = _serviceProvider.CreateScope();
+        //     var processor = scope.ServiceProvider.GetRequiredService<IExcelProcessorService>();
 
-            try
-            {
-                var message = JsonSerializer.Deserialize<ExcelFileProcessMessage>(json);
-                await processor.ProcessAsync(message!);
-                channel.BasicAck(ea.DeliveryTag, false);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Hata: {ex.Message}");
-                channel.BasicNack(ea.DeliveryTag, false, requeue: true);
-            }
-        };
+        //     try
+        //     {
+        //         var message = JsonSerializer.Deserialize<ExcelFileProcessMessage>(json);
+        //         await processor.ProcessAsync(message!);
+        //         channel.BasicAck(ea.DeliveryTag, false);
+        //     }
+        //     catch (Exception ex)
+        //     {
+        //         Console.WriteLine($"Hata: {ex.Message}");
+        //         channel.BasicNack(ea.DeliveryTag, false, requeue: true);
+        //     }
+        // };
 
-        channel.BasicConsume(queue: "excel-processing", autoAck: false, consumer: consumer);
+        //channel.BasicConsume(queue: "excel-processing", autoAck: false, consumer: consumer);
         return Task.CompletedTask;
     }
 }

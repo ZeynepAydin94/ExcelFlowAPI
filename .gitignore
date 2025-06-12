@@ -15,3 +15,4 @@ obj/
 # Çalışma zamanı dosyaları
 node_modules/
 dist/
+appsettings.shared.json
