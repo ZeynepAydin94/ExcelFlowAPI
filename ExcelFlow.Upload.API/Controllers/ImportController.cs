@@ -22,16 +22,15 @@ namespace ExcelFlow.Upload.API.Controllers
         /// </summary>
         /// <param name="createUploadJobDto">Details of the upload job to be created</param>
         /// <returns>Created upload job details</returns>
-        [HttpPost]
+        [HttpPost("CreateUploadJob")]
         public async Task<IActionResult> CreateUploadJob(UploadJobInsertDto createUploadJobDto)
         {
             if (createUploadJobDto == null || string.IsNullOrWhiteSpace(createUploadJobDto.FileUrl))
-            {
                 return Error("File URL is required.");
-            }
 
-            var uploadJob = await _uploadJobService.CreateAsync(createUploadJobDto);
-            return Success(uploadJob);
+            var result = await _uploadJobService.CreateAndQueueAsync(createUploadJobDto);
+            return Success(result);
+
         }
 
 

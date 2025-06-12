@@ -1,12 +1,13 @@
 using System;
 using System.Linq.Expressions;
 using AutoMapper;
+using ExcelFlow.Core.Entities;
 using ExcelFlow.Core.Interfaces;
 
 namespace ExcelFlow.Services.Services;
 
 
-public class BaseService<TEntity, TCreateDto> : IBaseService<TEntity, TCreateDto>
+public class BaseService<TEntity, TCreateDto, TResponse> : IBaseService<TEntity, TCreateDto, TResponse>
     where TEntity : class, new()
 {
     protected readonly IBaseRepository<TEntity> _repository;
@@ -19,7 +20,7 @@ public class BaseService<TEntity, TCreateDto> : IBaseService<TEntity, TCreateDto
         _repository = repository;
         _mapper = mapper;
     }
-    public virtual async Task<TEntity> GetByIdAsync(int id)
+    public async Task<TEntity> GetByIdAsync(int id)
     {
         var entity = await _repository.GetByIdAsync(id);
         if (entity == null)
@@ -27,17 +28,16 @@ public class BaseService<TEntity, TCreateDto> : IBaseService<TEntity, TCreateDto
 
         return _mapper.Map<TEntity>(entity);
     }
-    public virtual async Task<TCreateDto> CreateAsync(TCreateDto dto)
+    public async Task<TResponse> CreateAsync(TCreateDto dto)
     {
         // await ValidateCreateAsync(dto);
 
         var entity = _mapper.Map<TEntity>(dto);
-
         await PreInsertAsync(entity);
         await _repository.AddAsync(entity);
         await PostInsertAsync(entity);
 
-        return _mapper.Map<TCreateDto>(entity);
+        return _mapper.Map<TResponse>(entity);
     }
 
     public virtual Task PreInsertAsync(TEntity entity) => Task.CompletedTask;

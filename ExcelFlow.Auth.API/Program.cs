@@ -1,7 +1,7 @@
 using ExcelFlow.Web.Common.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Configuration.AddDefaultAppSettings();
 // Servis yapılandırmaları
 builder.Services.AddControllers();
 builder.Services.AddExcelFlowServices(builder.Configuration);

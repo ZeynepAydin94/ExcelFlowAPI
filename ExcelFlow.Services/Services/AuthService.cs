@@ -1,6 +1,8 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using AutoMapper;
+using ExcelFlow.Core.Dtos.Login;
 using ExcelFlow.Core.Entities;
 using ExcelFlow.Core.Interfaces;
 using ExcelFlow.Services.Interfaces;
@@ -9,13 +11,13 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace ExcelFlow.Services.Services;
 
-public class AuthService : BaseService<User>, IAuthService
+public class AuthService : BaseService<User, UserInsertDto, UserResponseDto>, IAuthService
 {
     private readonly IConfiguration _configuration;
 
     private readonly IAuthRepository _authRepository;
 
-    public AuthService(IConfiguration configuration, IAuthRepository authRepository) : base(authRepository)
+    public AuthService(IConfiguration configuration, IAuthRepository authRepository, IMapper mapper) : base(authRepository, mapper)
     {
         _configuration = configuration;
         _authRepository = authRepository;

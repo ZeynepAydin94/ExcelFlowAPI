@@ -5,7 +5,7 @@ using ExcelFlow.Core.Interfaces;
 
 namespace ExcelFlow.Services.Interfaces;
 
-public interface IAuthService : IBaseService<User, UserInsertDto>
+public interface IAuthService : IBaseService<User, UserInsertDto, UserResponseDto>
 {
     string GenerateToken(string userId, string email, string[] roles);
     bool ValidatePassword(string password, string hashedPassword);

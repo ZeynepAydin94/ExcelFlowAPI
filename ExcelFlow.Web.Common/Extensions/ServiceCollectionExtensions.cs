@@ -10,24 +10,41 @@ using ExcelFlow.Services.Interfaces;
 using ExcelFlow.Services.Services;
 using ExcelFlow.DataAccess.DbContexts;
 using Microsoft.EntityFrameworkCore;
+using ExcelFlow.Core.Configurations;
+using ExcelFlow.Services.Implementations;
 namespace ExcelFlow.Web.Common.Extensions;
 
 public static class ServiceCollectionExtensions
 {
+    public static IConfigurationBuilder AddDefaultAppSettings(this IConfigurationBuilder builder)
+    {
+        var sharedPath = Path.Combine(Directory.GetParent(AppContext.BaseDirectory)!.Parent!.Parent!.Parent!.Parent!.FullName, "appsettings.shared.json");
+
+        return builder
+            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+            .AddJsonFile(sharedPath, optional: false, reloadOnChange: true);
+
+    }
     public static IServiceCollection AddExcelFlowServices(this IServiceCollection services, IConfiguration configuration)
     {
         // DbContext
         services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
-
+        // AutoMapper
+        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         // Repositories
         services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
         services.AddScoped<IAuthRepository, AuthRepository>();
 
         // Services
-        services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
+        services.AddScoped(typeof(IBaseService<,,>), typeof(BaseService<,,>));
         services.AddScoped<IAuthService, AuthService>();
 
+        services.AddScoped<ICurrentUserService, CurrentUserService>();
+        services.AddHttpContextAccessor();
+        services.Configure<RabbitMqSettings>(
+    configuration.GetSection("RabbitMq"));
+        services.AddSingleton<IRabbitMQPublisherService, RabbitMQPublisherService>();
         return services;
     }
 

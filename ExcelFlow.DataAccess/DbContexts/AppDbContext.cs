@@ -1,13 +1,21 @@
 using ExcelFlow.Core.Entities;
+using ExcelFlow.Core.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace ExcelFlow.DataAccess.DbContexts;
 
 public class AppDbContext : DbContext
 {
-    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+    private readonly ICurrentUserService _currentUserService;
+
+    public AppDbContext(DbContextOptions<AppDbContext> options, ICurrentUserService currentUserService) : base(options)
+    {
+        _currentUserService = currentUserService;
+    }
 
     public DbSet<User>? Users { get; set; }
+    public DbSet<UploadJob>? UploadJob { get; set; }
+    public DbSet<UploadStatus>? UploadStatus { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -19,7 +27,52 @@ public class AppDbContext : DbContext
             entity.HasKey(e => e.RecordId);
             entity.Property(e => e.Email).IsRequired().HasMaxLength(100);
         });
+        modelBuilder.Entity<UploadJob>(entity =>
+      {
+          entity.HasKey(e => e.RecordId);
+      });
+        modelBuilder.Entity<UploadStatus>(entity =>
+       {
+           entity.HasKey(e => e.RecordId);
+       });
     }
+    public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
+    {
+        ApplyAuditInformation(); // Her SaveChanges çağrısında audit bilgileri doldurulur
+        return base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
+    }
+    private void ApplyAuditInformation()
+    {
+        // Değişiklik izleyicisindeki Added veya Modified durumundaki BaseEntity türündeki girişleri bul
+        var entries = ChangeTracker
+            .Entries<BaseEntity>()
+            .Where(e => e.State == EntityState.Added || e.State == EntityState.Modified);
+
+        int? currentUserId = _currentUserService.GetUserId(); // Mevcut kullanıcı ID'sini al
+        DateTime now = DateTime.UtcNow; // UTC saat kullanmak her zaman iyi bir uygulamadır
+
+        foreach (var entry in entries)
+        {
+            // Eğer entity yeni ekleniyorsa
+            if (entry.State == EntityState.Added)
+            {
+                entry.Entity.CreatedByUserId = currentUserId;
+                entry.Entity.CreatedAt = now;
+
+            }
+            // // Eğer entity güncelleniyorsa
+            // else if (entry.State == EntityState.Modified)
+            // {
+            //     //entry.Entity. = currentUserId;
+            //     entry.Entity.UpdatedAt = now;
+
+            //     // Önemli: Oluşturma bilgilerinin manuel olarak güncellenmesini engelle
+            //     // Bu, CreatedAt ve CreatedByUserId'nin sadece ilk oluşturmada ayarlanmasını sağlar.
+            //     entry.Property(nameof(BaseEntity.CreatedAt)).IsModified = false;
+            //     entry.Property(nameof(BaseEntity.CreatedByUserId)).IsModified = false;
+            // }
+        }
+    }
+
+
 }
-
-
