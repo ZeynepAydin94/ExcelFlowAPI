@@ -1,6 +1,7 @@
 using System;
 using Amazon.S3;
 using Amazon.S3.Model;
+using ExcelFlow.Core.Dtos.UploadJob;
 using ExcelFlow.Services.Interfaces;
 using Microsoft.Extensions.Configuration;
 
@@ -23,7 +24,7 @@ public class AwsS3Service : IAwsS3Service
         _s3Client = new AmazonS3Client(awsCredentials, Amazon.RegionEndpoint.GetBySystemName(region));
     }
 
-    public string GeneratePreSignedUploadUrl()
+    public GeneratePreSignedUploadUrlResponseDto GeneratePreSignedUploadUrl()
     {
         var contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
         var request = new GetPreSignedUrlRequest
@@ -34,7 +35,11 @@ public class AwsS3Service : IAwsS3Service
             Expires = DateTime.UtcNow.AddMinutes(_preSignedUrlExpirationMinutes),
             ContentType = contentType
         };
-
-        return _s3Client.GetPreSignedURL(request);
+        var response = _s3Client.GetPreSignedURL(request);
+        return new GeneratePreSignedUploadUrlResponseDto
+        {
+            Url = response,
+            FileName = request.Key
+        };
     }
 }

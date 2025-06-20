@@ -39,7 +39,7 @@ public static class ServiceCollectionExtensions
         // Services
         services.AddScoped(typeof(IBaseService<,,>), typeof(BaseService<,,>));
         services.AddScoped<IAuthService, AuthService>();
-
+        services.AddScoped<IAwsS3Service, AwsS3Service>();
         services.AddScoped<ICurrentUserService, CurrentUserService>();
         services.AddHttpContextAccessor();
         services.Configure<RabbitMqSettings>(

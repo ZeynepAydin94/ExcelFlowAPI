@@ -15,16 +15,19 @@ public class UploadJobService : BaseService<UploadJob, UploadJobInsertDto, Uploa
 {
     private readonly IUploadJobRepository _IuploadJobRepository;
     private readonly IRabbitMQPublisherService _rabbitMQPublisher;
+    private readonly IConfiguration config;
     public UploadJobService(IConfiguration configuration, IUploadJobRepository uploadJobRepository, IRabbitMQPublisherService rabbitMQPublisher, IMapper mapper)
         : base(uploadJobRepository, mapper)
     {
         _IuploadJobRepository = uploadJobRepository;
         _rabbitMQPublisher = rabbitMQPublisher;
+        config = configuration;
     }
     public override Task PreInsertAsync(UploadJob entity)
     {
+
         entity.StatusId = (int)EUploadJobStatus.Uploaded;
-        entity.FileName = Guid.NewGuid().ToString(); // Örnek dosya adı oluşturma
+        entity.FileUrl = $"https://{config["AWS:BucketName"]}.s3.{config["AWS:Region"]}.amazonaws.com/{entity.FileName}";
         return base.PreInsertAsync(entity);
     }
 

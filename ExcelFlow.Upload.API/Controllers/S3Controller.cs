@@ -20,8 +20,8 @@ namespace ExcelFlow.Upload.API.Controllers
         [HttpPost("GeneratePreSignedUrl")]
         public IActionResult GeneratePreSignedUrl()
         {
-            var url = _awsS3Service.GeneratePreSignedUploadUrl();
-            return Ok(new { Url = url });
+            var response = _awsS3Service.GeneratePreSignedUploadUrl();
+            return Ok(response);
         }
     }
 }
