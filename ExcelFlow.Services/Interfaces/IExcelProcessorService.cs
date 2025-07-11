@@ -5,5 +5,6 @@ namespace ExcelFlow.Services.Interfaces;
 
 public interface IExcelProcessorService
 {
-    Task ProcessAsync(ExcelFileProcessMessage message);
+    Task ProcessAsync(int uploadJobId, CancellationToken cancellationToken = default);
+
 }

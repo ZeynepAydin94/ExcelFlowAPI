@@ -11,7 +11,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace ExcelFlow.Services.Services;
 
-public class AuthService : BaseService<User, UserInsertDto, UserResponseDto>, IAuthService
+public class AuthService : BaseService<User, UserInsertDto, UserUpdateDto, UserResponseDto>, IAuthService
 {
     private readonly IConfiguration _configuration;
 

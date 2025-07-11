@@ -42,4 +42,15 @@ public class AwsS3Service : IAwsS3Service
             FileName = request.Key
         };
     }
+
+    public async Task<Stream> DownloadFileAsync(string fileUrl, CancellationToken cancellationToken = default)
+    {
+        // https://bucket.s3.region.amazonaws.com/key -> sadece key kısmını ayıkla
+        var uri = new Uri(fileUrl);
+        var bucket = _bucketName;
+        var key = uri.AbsolutePath.TrimStart('/');
+
+        var response = await _s3Client.GetObjectAsync(bucket, key, cancellationToken);
+        return response.ResponseStream;
+    }
 }

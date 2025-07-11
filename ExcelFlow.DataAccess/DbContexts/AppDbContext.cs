@@ -16,7 +16,10 @@ public class AppDbContext : DbContext
     public DbSet<User>? Users { get; set; }
     public DbSet<UploadJob>? UploadJob { get; set; }
     public DbSet<UploadStatus>? UploadStatus { get; set; }
-
+    public DbSet<ExcelTemplate>? ExcelTemplates { get; set; }
+    public DbSet<ExcelTemplateColumn>? ExcelTemplateColumns { get; set; }
+    public DbSet<ExcelTemplateColumnValidation> ExcelTemplateColumnValidations { get; set; }
+    public DbSet<UploadJobError> UploadJobErrors { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
@@ -35,6 +38,23 @@ public class AppDbContext : DbContext
        {
            entity.HasKey(e => e.RecordId);
        });
+        modelBuilder.Entity<ExcelTemplate>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.Name).IsRequired().HasMaxLength(200);
+            entity.Property(e => e.TargetTable).IsRequired().HasMaxLength(200);
+        });
+        modelBuilder.Entity<ExcelTemplateColumn>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.ExcelColumnName).IsRequired().HasMaxLength(100);
+            entity.Property(e => e.TargetColumnName).IsRequired().HasMaxLength(100);
+        });
+        modelBuilder.Entity<UploadJobError>()
+            .HasOne(e => e.UploadJob)
+            .WithMany() // istersen UploadJob tarafına ICollection<UploadJobError> ekleyebilirsin
+            .HasForeignKey(e => e.UploadJobId);
+        // Diğer entity yapılandırmaları...
     }
     public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
     {

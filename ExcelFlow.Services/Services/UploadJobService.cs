@@ -11,7 +11,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace ExcelFlow.Services.Services;
 
-public class UploadJobService : BaseService<UploadJob, UploadJobInsertDto, UploadJobInsertResponseDto>, IUploadJobService
+public class UploadJobService : BaseService<UploadJob, UploadJobInsertDto, UploadJobUpdateDto, UploadJobInsertResponseDto>, IUploadJobService
 {
     private readonly IUploadJobRepository _IuploadJobRepository;
     private readonly IRabbitMQPublisherService _rabbitMQPublisher;

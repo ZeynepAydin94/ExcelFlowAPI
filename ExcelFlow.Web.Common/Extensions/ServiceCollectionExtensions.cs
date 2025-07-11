@@ -37,7 +37,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IAuthRepository, AuthRepository>();
 
         // Services
-        services.AddScoped(typeof(IBaseService<,,>), typeof(BaseService<,,>));
+        services.AddScoped(typeof(IBaseService<,,,>), typeof(BaseService<,,,>));
         services.AddScoped<IAuthService, AuthService>();
         services.AddScoped<IAwsS3Service, AwsS3Service>();
         services.AddScoped<ICurrentUserService, CurrentUserService>();
@@ -45,6 +45,7 @@ public static class ServiceCollectionExtensions
         services.Configure<RabbitMqSettings>(
     configuration.GetSection("RabbitMq"));
         services.AddSingleton<IRabbitMQPublisherService, RabbitMQPublisherService>();
+        services.AddSingleton<IRabbitMQSubscriber, RabbitMQSubscriber>();
         services.Configure<AwsS3Settings>(
   configuration.GetSection("AWS"));
         return services;

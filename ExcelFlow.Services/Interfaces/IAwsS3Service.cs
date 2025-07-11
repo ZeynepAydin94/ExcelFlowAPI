@@ -6,4 +6,5 @@ namespace ExcelFlow.Services.Interfaces;
 public interface IAwsS3Service
 {
     GeneratePreSignedUploadUrlResponseDto GeneratePreSignedUploadUrl();
+    Task<Stream> DownloadFileAsync(string fileUrl, CancellationToken cancellationToken = default);
 }
