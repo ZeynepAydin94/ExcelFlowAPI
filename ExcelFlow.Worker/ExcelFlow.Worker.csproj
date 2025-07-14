@@ -16,5 +16,6 @@
   <ItemGroup>
     <ProjectReference Include="../ExcelFlow.Core/ExcelFlow.Core.csproj" />
     <ProjectReference Include="../ExcelFlow.Services/ExcelFlow.Services.csproj" />
+    <ProjectReference Include="../ExcelFlow.Web.Common/ExcelFlow.Web.Common.csproj" />
   </ItemGroup>
 </Project>

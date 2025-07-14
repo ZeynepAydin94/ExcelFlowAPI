@@ -12,21 +12,28 @@ public class ExcelMessageConsumer : BackgroundService
 {
     private readonly IServiceProvider _serviceProvider;
     private readonly IRabbitMQSubscriber _subscriber;
-    public ExcelMessageConsumer(IServiceProvider serviceProvider)
+    public ExcelMessageConsumer(IServiceProvider serviceProvider, IRabbitMQSubscriber subscriber)
     {
+
+
         _serviceProvider = serviceProvider;
+        _subscriber = subscriber;
     }
 
 
-    protected override Task ExecuteAsync(CancellationToken stoppingToken)
+    override protected async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         _subscriber.Subscribe<ExcelFileProcessMessage>("excel-processing", async message =>
- {
-     using var scope = _serviceProvider.CreateScope();
-     var processor = scope.ServiceProvider.GetRequiredService<IExcelProcessorService>();
-     await processor.ProcessAsync(message.FileId);
- });
+         {
+             using var scope = _serviceProvider.CreateScope();
+             var processor = scope.ServiceProvider.GetRequiredService<IExcelProcessorService>();
+             await processor.ProcessAsync(message.FileId);
+         });
 
-        return Task.CompletedTask;
+        // uygulama bitene kadar açık kalmalı
+        while (!stoppingToken.IsCancellationRequested)
+        {
+            await Task.Delay(1000, stoppingToken);
+        }
     }
 }

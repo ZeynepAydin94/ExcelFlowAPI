@@ -12,7 +12,6 @@ public class AppDbContext : DbContext
     {
         _currentUserService = currentUserService;
     }
-
     public DbSet<User>? Users { get; set; }
     public DbSet<UploadJob>? UploadJob { get; set; }
     public DbSet<UploadStatus>? UploadStatus { get; set; }
@@ -50,10 +49,10 @@ public class AppDbContext : DbContext
             entity.Property(e => e.ExcelColumnName).IsRequired().HasMaxLength(100);
             entity.Property(e => e.TargetColumnName).IsRequired().HasMaxLength(100);
         });
-        modelBuilder.Entity<UploadJobError>()
-            .HasOne(e => e.UploadJob)
-            .WithMany() // istersen UploadJob tarafına ICollection<UploadJobError> ekleyebilirsin
-            .HasForeignKey(e => e.UploadJobId);
+        modelBuilder.Entity<UploadJobError>(entity =>
+        {
+            entity.HasKey(e => e.RecordId);
+        });
         // Diğer entity yapılandırmaları...
     }
     public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)

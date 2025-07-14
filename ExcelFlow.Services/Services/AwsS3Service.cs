@@ -11,7 +11,7 @@ namespace ExcelFlow.Services.Services;
 public class AwsS3Service : IAwsS3Service
 {
     private readonly IAmazonS3 _s3Client;
-    private readonly string _bucketName;
+    private readonly string? _bucketName;
     private readonly int _preSignedUrlExpirationMinutes;
     public AwsS3Service(IConfiguration config)
     {

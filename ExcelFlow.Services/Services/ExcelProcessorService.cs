@@ -21,7 +21,7 @@ public class ExcelProcessorService : IExcelProcessorService
         IUploadJobService uploadJobService,
         IExcelValidationEngine validationEngine,
         IAwsS3Service s3Service,
-        IExcelReaderService excelReader, IUploadJobErrorService uploadJobErrorService, IMapper mapper)
+        IExcelReaderService excelReader, IUploadJobErrorService uploadJobErrorService, IMapper mapper, IExcelMapperService mapperService)
     {
         _uploadJobService = uploadJobService;
         _validationEngine = validationEngine;
@@ -29,6 +29,7 @@ public class ExcelProcessorService : IExcelProcessorService
         _excelReader = excelReader;
         _uploadJobErrorService = uploadJobErrorService;
         _mapper = mapper;
+        _mapperService = mapperService;
     }
 
     public async Task ProcessAsync(int uploadJobId, CancellationToken cancellationToken = default)

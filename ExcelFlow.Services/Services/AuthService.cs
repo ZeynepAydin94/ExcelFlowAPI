@@ -69,7 +69,7 @@ public class AuthService : BaseService<User, UserInsertDto, UserUpdateDto, UserR
     }
 
     // Şifre doğrulama metodu (örnek)
-    public bool ValidatePassword(string password, string hashedPassword)
+    public bool ValidatePassword(string password, string? hashedPassword)
     {
         return BCrypt.Net.BCrypt.Verify(password, hashedPassword);
     }

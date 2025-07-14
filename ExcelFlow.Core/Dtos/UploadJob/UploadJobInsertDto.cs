@@ -4,5 +4,5 @@ namespace ExcelFlow.Core.Dtos.UploadJob;
 
 public class UploadJobInsertDto
 {
-    public string FileName { get; set; }
+    public required string FileName { get; set; }
 }

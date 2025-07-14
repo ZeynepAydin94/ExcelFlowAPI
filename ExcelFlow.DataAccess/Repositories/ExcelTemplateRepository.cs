@@ -9,11 +9,9 @@ namespace ExcelFlow.DataAccess.Repositories;
 
 public class ExcelTemplateRepository : BaseRepository<ExcelTemplate>, IExcelTemplateRepository
 {
-    private readonly AppDbContext _context;
 
     public ExcelTemplateRepository(AppDbContext context) : base(context)
     {
-        _context = context;
     }
 
     public async Task<ExcelTemplate?> GetTemplateWithColumnsAsync(int templateId, CancellationToken cancellationToken)

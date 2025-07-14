@@ -28,6 +28,7 @@ public class UploadJobService : BaseService<UploadJob, UploadJobInsertDto, Uploa
 
         entity.StatusId = (int)EUploadJobStatus.Uploaded;
         entity.FileUrl = $"https://{config["AWS:BucketName"]}.s3.{config["AWS:Region"]}.amazonaws.com/{entity.FileName}";
+        entity.ExcelTemplateId = (int)EExcelTemplate.Customer; // Default template, can be changed later based on requirements
         return base.PreInsertAsync(entity);
     }
 
