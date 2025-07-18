@@ -46,6 +46,7 @@ public static class ServiceCollectionExtensions
     configuration.GetSection("RabbitMq"));
         services.AddSingleton<IRabbitMQPublisherService, RabbitMQPublisherService>();
         services.AddSingleton<IRabbitMQSubscriber, RabbitMQSubscriber>();
+
         services.Configure<AwsS3Settings>(
   configuration.GetSection("AWS"));
         return services;

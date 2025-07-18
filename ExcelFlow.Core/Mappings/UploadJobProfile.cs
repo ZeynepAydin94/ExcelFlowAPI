@@ -12,5 +12,9 @@ public class UploadJobProfile : Profile
 
         // Entity -> DTO
         CreateMap<UploadJob, UploadJobInsertResponseDto>();
+        CreateMap<UploadJob, UploadJobUpdateDto>();
+        CreateMap<UploadJobUpdateDto, UploadJob>();
+
+
     }
 }

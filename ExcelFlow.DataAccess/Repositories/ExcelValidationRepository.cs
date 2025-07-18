@@ -17,7 +17,7 @@ public class ExcelValidationRepository : IExcelValidationRepository
 
     public async Task<List<ExcelTemplateColumn>> GetColumnsWithValidationsAsync(int templateId, CancellationToken cancellationToken)
     {
-        return await _dbContext.ExcelTemplateColumns
+        return await _dbContext.ExcelTemplateColumn
             .Where(x => x.ExcelTemplateId == templateId && x.IsActive && !x.IsDeleted)
             .Include(x => x.Validations) // Validations navigasyon property olmalı
             .ToListAsync(cancellationToken);

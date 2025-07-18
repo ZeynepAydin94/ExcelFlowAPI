@@ -16,9 +16,9 @@ public class ExcelTemplateRepository : BaseRepository<ExcelTemplate>, IExcelTemp
 
     public async Task<ExcelTemplate?> GetTemplateWithColumnsAsync(int templateId, CancellationToken cancellationToken)
     {
-        return await _context.ExcelTemplates
+        return await _context.ExcelTemplate
             .Include(t => t.Columns)
-            .FirstOrDefaultAsync(t => t.Id == templateId, cancellationToken);
+            .FirstOrDefaultAsync(t => t.RecordId == templateId, cancellationToken);
     }
 
     public async Task InsertRowAsync(string tableName, Dictionary<string, string> columnValues, CancellationToken cancellationToken)
