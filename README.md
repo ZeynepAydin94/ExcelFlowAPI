@@ -1,4 +1,4 @@
-# ExcelFlow (English)
+# ExcelFlow 
 
 ExcelFlow is a modern data processing platform built with React and .NET 9. It uploads large Excel files directly to Amazon S3, enqueues them via RabbitMQ, and processes them in the background using a .NET Worker Service. With dynamic validation rules and flexible table mappings, it processes data securely and efficiently.
 
